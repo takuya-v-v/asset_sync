@@ -4,6 +4,9 @@ module AssetSync
   class MultiMime
 
     def self.lookup(ext)
+      if ext.nil?
+        return 'application/octet-stream'
+      end
 
       if defined?(Mime::Type)
         Mime::Type.lookup_by_extension(ext)
